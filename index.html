@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Days Happened</title>
+   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+   <style>
+
+
+      .day{
+         font-family: sans-serif;
+         height: 100vh;
+         font-size: 17vw;
+         text-align: center;
+      }
+
+
+   </style>
+
+
+</head>
+<body>
+
+   <div class="day">
+      Day No. <br>
+      <span>01</span>
+   </div>
+   
+</body>
+
+<script>
+
+   /*
+      This time I'm certain about myself.
+      I will change myself the way I want..
+      This journey is started from now...🙂
+   
+   */
+
+   const myDate = new Date(2023, 0);
+   let mili = 24 * 60 * 60 * 1000;
+   let happened = parseInt((Date.now() - myDate)/mili);
+
+   let span = document.getElementsByTagName('span')[0];
+
+   if(happened < 10){
+      span.textContent = `0${happened}`;
+   }
+   else span.textContent = happened;
+
+
+
+
+</script>
+</html>
