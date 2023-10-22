@@ -47,6 +47,11 @@
          color: transparent;
       }
 
+      .first, 
+      .second {
+         text-align: center;
+      }
+
    </style>
 
 
@@ -59,6 +64,8 @@
          Days <br>
          <span >01</span>
       </p>
+      <p class="first"></p>
+      <p class="second"></p>
    </div>
    
 </body>
@@ -176,14 +183,29 @@
 
    const rI = (e, s=0) => Math.floor(Math.random()*(e-s)+s);
 
-   const myDate = new Date(2023, 4, 31, 19);
+   const myDate = new Date(2023, 9, 24);
    let mili = 24 * 60 * 60 * 1000;
-   let happened = parseInt((Date.now() - myDate)/mili);
+   const now = Date.now();
+   let happened = parseInt((now - myDate)/mili);
 
    let span = document.getElementsByTagName('span')[0];
    const qt = document.querySelector('.quote');
+   const fp = document.querySelector('.first');
+   const sp = document.querySelector('.second');
+
+   const birthday1 = (now - new Date(1995, 7, 16, 17, 5)) / mili;
+   const birthday2 = (now - new Date(1997, 0, 15)) /mili;
+
+
 
    qt.innerHTML = quote[rI(0, quote.length)];
+   fp.innerHTML = `${parseInt(birthday1/365)}yr, 
+                  ${parseInt((birthday1 % 365)/30)}mns, 
+                  ${parseInt((birthday1 % 365) % 30)}dys`;
+
+   sp.innerHTML = `${parseInt(birthday2/365)}yr, 
+                  ${parseInt((birthday2 % 365) / 30)}mns, 
+                  ${parseInt((birthday2 % 365) % 30)}dys`;
 
    if(happened < 10){
       span.textContent = `0${happened}`;
